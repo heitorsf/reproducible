@@ -28,4 +28,4 @@ A URL will be prompted in your screen, copy and paste it to your browser.
 Once in the jupyter notebook, open `/work/reproducible/deliver/Executable_Paper.ipnb`.
 
 
-For support, please e-mail heitor@gmail.com.
+For support, please e-mail heitorsf@gmail.com.
