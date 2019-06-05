@@ -21,7 +21,7 @@ First, install Docker following the instructions on https://docs.docker.com/inst
 You will use the container [heitorsf/nerlab:netpyne](https://hub.docker.com/r/heitorsf/nerlab). For that, type in the command line:
 
 ```
-docker run -it -p 8888:8888 -v /YOUR_PATH_TO_THE_CLONED_REPO/reproducible:work/reproducible heitorsd/nerlab:netpyne
+docker run -it -p 8888:8888 -v /YOUR_PATH_TO_THE_CLONED_REPO/reproducible:work/reproducible heitorsf/nerlab:netpyne
 ```
 A URL will be prompted in your screen, copy and paste it to your browser.
 
