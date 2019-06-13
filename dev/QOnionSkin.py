@@ -8,10 +8,7 @@ Created on Wed Jun 28 19:59:08 2017
 from netpyne import sim, specs
 import numpy as np
 from matplotlib import pyplot as plt
-from DetectPA import getSpikes
-from mu_type import *
-from QForceFunc import forceFromSpikes
-from QSOFilter import forceSOF
+import nerlabmodel as ner
 
 netParams = specs.NetParams()
 simConfig = specs.SimConfig()
@@ -47,8 +44,8 @@ netParams.cellParams['HHNapp'] = cellRule
 netParams.stimSourceParams['Istep'] = {'type': 'IClampX',
                                        'signal_type': 2, #triang
                                        'delay': 20,
-                                       'risedur': 2500,
-                                       'falldur': 2500,
+                                       'risedur': 250,
+                                       'falldur': 250,
                                        'amp': 22
                                        }
 netParams.stimTargetParams['Istep->Pop1'] = {'source': 'Istep',
@@ -58,13 +55,12 @@ netParams.stimTargetParams['Istep->Pop1'] = {'source': 'Istep',
                                              'loc': 0.5}
 
         
-simConfig.duration = 7.2*1e3
-simConfig.dt = 0.001
+simConfig.duration = 720 #*1e3
+simConfig.dt = 0.025
 simConfig.seeds = {'conn': 1, 'stim': 1, 'loc': 1}
 simConfig.createNEURONObj = True
 simConfig.createPyStruct = True
 simConfig.verbose = False
-
 
 simConfig.recordCells = ['all']
 simConfig.recordTraces = {'v_soma': {'sec':'soma', 'loc': 0.5, 'var': 'v'}}
@@ -78,19 +74,19 @@ simConfig.saveTxt = True
 #simConfig.analysis['plotTraces'] = {'include': [0,1,2], 'oneFigPer': 'trace'}
 #simConfig.analysis['plot2Dnet'] = True  # Plot 2D net cells and connections
 
-data = sim.create(netParams=netParams, simConfig=simConfig, output=True)
+(pops, cells, conns, stims, simData) = sim.create(netParams=netParams, simConfig=simConfig, output=True)
 mutype = []
-for cell in range(len(data[1])):
-    soma = data[1][cell].secs.soma.hSec
-    dend = data[1][cell].secs.dend.hSec
-    if cell == 0:
-        mus(soma, dend)
+for n in range(len(cells)):
+    soma = cells[n].secs.soma.hSec
+    dend = cells[n].secs.dend.hSec
+    if n == 0:
+        ner.mus(soma, dend)
         mutype.append('S')
-    elif cell == 1:
-        mufr(soma, dend)
+    elif n == 1:
+        ner.mufr(soma, dend)
         mutype.append('FR')
-    elif cell == 2:
-        muff(soma, dend)
+    elif n == 2:
+        ner.muff(soma, dend)
         mutype.append('FF')
 
 #for i in range(len(data[1])):
@@ -105,30 +101,30 @@ sim.analyze()
 
 #v_soma_cell_0 = np.array(data[4]['v_soma']['cell_0'].to_python())
 
-t = np.array(data[4].t.to_python())
+t = np.array(simData.t.to_python())
 #    np.arange(0, simConfig.duration, simConfig.dt)
 
 #plt.plot(t, v_soma_cell_0)
 
 v_list = list()
-for i in data[0]['Pop1'].cellGids:
+for i in pops['Pop1'].cellGids:
     cell = 'cell_'+str(i)
-    v_list.append(np.array(data[4]['v_soma'][cell].to_python()))
+    v_list.append(np.array(simData['v_soma'][cell].to_python()))
 cells_v = np.array(v_list).transpose()
 
-spkt, spkv = getSpikes(t, cells_v, 20, output=True, plotRaster=True, newfigure=True)
+spkt, spkv = ner.getSpikes(t, cells_v, 20, output=True, plotRaster=True, newfigure=True)
 
-force = forceSOF(spkt, t, mutype)
+force = ner.forceSOF(spkt, t, mutype)
 
 ifreq = 1000./np.diff(spkt)
 midtimes = spkt[:,1:] - np.diff(spkt)/2.
 midtimes[1,51]=0
 midtimes[2,28]=0
 
-vel_cond = 45. # m/s
-axon_len = 0.6 # m
-atrasoAx = axon_len/vel_cond
-spktAx = spkt+ atrasoAx
+#vel_cond = 45. # m/s
+#axon_len = 0.6 # m
+#atrasoAx = axon_len/vel_cond
+#spktAx = spkt+ atrasoAx
 '''
 plt.subplot(2,1,1)
 #plt.plot(t, cells_v[:,0], 'k', label='AMembrane Potential [mV]')

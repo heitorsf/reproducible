@@ -16,14 +16,14 @@ void modl_reg(){
   if (!nrn_nobanner_) if (nrnmpi_myid < 1) {
     fprintf(stderr, "Additional mechanisms from files\n");
 
-    fprintf(stderr," MODfiles//Force.mod");
-    fprintf(stderr," MODfiles//IClampX.mod");
-    fprintf(stderr," MODfiles//XClamp.mod");
-    fprintf(stderr," MODfiles//caL.mod");
-    fprintf(stderr," MODfiles//force_syn.mod");
-    fprintf(stderr," MODfiles//napp.mod");
-    fprintf(stderr," MODfiles//peakcount.mod");
-    fprintf(stderr," MODfiles//refrac.mod");
+    fprintf(stderr," MODfiles/Force.mod");
+    fprintf(stderr," MODfiles/IClampX.mod");
+    fprintf(stderr," MODfiles/XClamp.mod");
+    fprintf(stderr," MODfiles/caL.mod");
+    fprintf(stderr," MODfiles/force_syn.mod");
+    fprintf(stderr," MODfiles/napp.mod");
+    fprintf(stderr," MODfiles/peakcount.mod");
+    fprintf(stderr," MODfiles/refrac.mod");
     fprintf(stderr, "\n");
   }
   _Force_reg();
