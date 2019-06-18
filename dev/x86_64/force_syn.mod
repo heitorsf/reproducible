@@ -1,1 +1,0 @@
-../MODfiles/force_syn.mod
