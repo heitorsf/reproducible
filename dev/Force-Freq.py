@@ -22,13 +22,15 @@ forces = np.array([])
 cells_vs = np.array([])
 summa = np.array([])
 #plt.figure()
-mutype = 'S'
+import sys
+mutype = sys.argv[1]
+#mutype = 'S'
 if mutype == "S" or mutype =="s":
-    i_range = np.logspace(np.log10(6),np.log10(38), 11) # S
+    i_range = np.logspace(np.log10(6),np.log10(25), 15) # S
 elif mutype == "FR" or mutype == "fr":
-    i_range = np.logspace(np.log10(13),np.log10(46), 11) # FR
+    i_range = np.logspace(np.log10(13),np.log10(56), 15) # FR
 elif mutype == "FF" or mutype == "ff":
-    i_range = np.logspace(np.log10(22),np.log10(48), 11) # FF
+    i_range = np.logspace(np.log10(22),np.log10(58), 15) # FF
     
 for i_stim in i_range:
     start = time.time()
@@ -176,7 +178,10 @@ for i_stim in i_range:
 
 print times
 #summa = summa.reshape((force.shape[1], 11))
-plt.plot(freqs, forces)
+#plt.plot(freqs, forces)
+np.savetxt("freq"+mutype+".txt",freqs)
+np.savetxt("force"+mutype+".txt",forces)
+print("Saved "+mutype+" data.")
 ##np.savetxt("FxFcells_vs_FR.txt", cells_vs)
 #np.savetxt("FxF-2forcesmax_"+mutype+".txt", forces)
 #np.savetxt("FxF-2freqs_"+mutype+".txt", freqs)

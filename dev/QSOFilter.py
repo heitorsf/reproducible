@@ -16,6 +16,8 @@ def forceSOF(spkt, t, mutype):
     start = time.time()
     dt = t[1]
     forces = np.zeros(t.size)
+    if isinstance(mutype,str):
+        mutype = [mutype]
     for cell_index in range(spkt.shape[0]): # Para cada celula/spike train:        
         if mutype[cell_index] == "S" or mutype[cell_index] =="s":
             Fmaxmu = 1.70    # N
