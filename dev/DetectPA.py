@@ -23,6 +23,8 @@ def getSpikes(t, v, setdvdt, output=False, plotRaster=True, newfigure=True):
     if len(v.shape)<2:
         v.shape = (v.shape[0],1)
     dvdt = np.diff(v, axis=0)
+    if t.shape[0]>v.shape[0]:
+        t = t[:-1]
     dt = t[1]
     
     ''' Detect Spikes '''

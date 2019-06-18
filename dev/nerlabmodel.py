@@ -109,7 +109,7 @@ def forceFromSpikes(spkt, t, mutype):
 
 #_______________________________________________________________________
 
-def forceSOF(spkt, t, mutype, plotForces=True):
+def forceSOF(spkt, t, mutype, plotForces=False):
     dt = t[1]
     forces = np.zeros(t.size)
     if plotForces:

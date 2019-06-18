@@ -1,37 +1,37 @@
-# A model of the neuromuscular system
+# Um modelo do sistema neuromuscular
 
-This repository contains a computational model of the human neuromuscular system implemented using the NEURON simulator (https://neuron.yale.edu) with Python and the module NetPyNE.
+Este repositório contém um modelo computacional simplificado do sistema neuromuscular humano. Foi implementado usando o simulador NEURON com Python e com o módulo NetPyNE.
 
-## Environment
+## Ambiente
 
-These are the requirements for running the model:
+Estes são as dependências para executar o modelo:
 1. Python 2.7 (https://www.python.org/)
 2. NEURON 7.4 (https://neuron.yale.edu)
 3. NetPyNE 0.7.0 (https://netpyne.org)
-4. The files in this repository.
+4. Os arquivos neste repositório.
 
-You can either install the requirements manually or **run in docker container**.
+Você pode executar o modelo usando um **container docker**, descrito abaixo, ou instalar todas as dependências manualmente.
 
-## Using the docker container
+## Usando o container docker
 
-First, install Docker following the instructions on https://docs.docker.com/install/.
+Primeiro, instale o Docker seguindo as instruções em https://docs.docker.com/install/, de acordo com seu sistema operacional (na página, escolha o sistema pelo menu lateral esquerdo).
 
-You will use the *docker image* [heitorsf/nerlab:reproduce] (https://hub.docker.com/r/heitorsf/nerlab) to create a *container*. You can name the container for further use. For that, type in the command line to create a container using the docker image
+Você irá usar a *imagem docker* chamada [heitorsf/nerlab:reproduce] (https://hub.docker.com/r/heitorsf/nerlab) (o link é apenas para referência ao Docker Hub) para criar um *container*. Você pode dar um nome a ese container para utilizá-lo novamente depois. Para isso, use o seguinte comando em um console ou terminal:
 
 ```
 docker run -it -p 8888:8888 --name my_container heitorsf/nerlab:reproduce
 ```
 
-A URL will be prompted in your screen, copy and paste it to your browser.
+Uma URL irá aparecer em sua tela, copie-a em um *web browser* para acessar o *jupyter notebook*.
 
-Once in the jupyter notebook, open `/work/reproducible/deliver/Artigo_Executavel.ipnb`.
+Uma vez no jupyter notebook, abra o seguinte arquivo: `/work/reproducible/deliver/Artigo_Executavel.ipnb`.
 
-To close everything, go to the command line screen and type Ctrl+C.
+Para fechar o container, pressione Ctrl+c no terminal ou console a partir do quel você executou o container.
 
-If you want to run your container again, use:
+Se você quiser rodar o mesmo container novamente, use:
 
 ```
 docker start -i my_container
 ```
 
-For support, please e-mail heitorsf@gmail.com.
+Para suporte, envie um e-mail para heitorsf@gmail.com.
