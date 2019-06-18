@@ -1,9 +1,9 @@
-O modelo foi implementado em linguagem de programação Python (versão 2.7.13), que é uma linguagem livre, de fácil entendimento [6] e que vem sendo utilizada e difundida pela comunidade científica de Neurociência Computacional [7]. Os elementos neuronais foram implementados utilizando as bibliotecas do simulador NEURON [8] para a linguagem Python. A rede de MNs foi implementada utilizando o NetPyNE [9].
+O modelo foi implementado em linguagem de programação Python (versão 2.7.13), que é uma linguagem livre, de fácil entendimento \cite{Lutz2013} e que vem sendo utilizada e difundida pela comunidade científica de Neurociência Computacional \cite{Muller2015}. Os elementos neuronais foram implementados utilizando as bibliotecas do simulador NEURON \cite{carnevale2006neuron} para a linguagem Python. A rede de MNs foi implementada utilizando o NetPyNE \cite{Dura-Bernal2016}.
 
 O modelo neuromuscular desenvolvido é composto por apenas três MNs (modelo simplificado) e as fibras musculares por eles inervadas. As fibras musculares pertencentes a uma determinada unidade motora são referidas como unidades musculares (UMs). Os modelos individuais dos MNs e das UMs serão descritos abaixo.
 
 \paragraph{Modelo de MN alpha}
-Foram representados modelos de MNs dos tipos S (\emph{slow}, que inerva fibras musculares lentas e resistentes à fadiga), FR (\emph{fast fatigue resistant}, fibras rápidas e resistentes à fadiga) e FF (\emph{fast fatigable}, fibras rápidas e fatigáveis). Estes modelos foram baseados na proposta de Cisi e Kohn [5], em que a morfologia dos MNs é sintetizada em dois compartimentos acoplados por uma condutância. Um compartimento representa a árvore dendrítica, que neste estudo foi suposta passiva, e o outro compartimento representa o corpo celular (ou soma). O circuito elétrico equivalente dos modelos está ilustrado na Figura 1. As condutâncias ativas somáticas são responsáveis pelo decurso temporal do PA e da AHP (\emph{after hyperpolarization}). Estas condutâncias (Na+, K+, persistente de Na+ e lenta de K+) foram parametrizadas e validadas em um estudo anterior do nosso laboratório [10]. Os parâmetros geométricos e eletrotônicos (Tabela 1) foram baseados em estudos experimentais anteriores com MNs de gatos anestesiados [11-13].
+Foram representados modelos de MNs dos tipos S (\emph{slow}, que inerva fibras musculares lentas e resistentes à fadiga), FR (\emph{fast fatigue resistant}, fibras rápidas e resistentes à fadiga) e FF (\emph{fast fatigable}, fibras rápidas e fatigáveis). Estes modelos foram baseados na proposta de Cisi e Kohn \cite{Cisi2008a}, em que a morfologia dos MNs é sintetizada em dois compartimentos acoplados por uma condutância. Um compartimento representa a árvore dendrítica, que neste estudo foi suposta passiva, e o outro compartimento representa o corpo celular (ou soma). O circuito elétrico equivalente dos modelos está ilustrado na Figura 1. As condutâncias ativas somáticas são responsáveis pelo decurso temporal do PA e da AHP (\emph{after hyperpolarization}). Estas condutâncias (Na+, K+, persistente de Na+ e lenta de K+) foram parametrizadas e validadas em um estudo anterior do nosso laboratório \cite{Matoso2017}, sendo que os parâmetros geométricos e eletrotônicos (Tabela 1) foram baseados em estudos experimentais anteriores com MNs de gatos anestesiados \cite{Crill1996,Fleshman1988,Zengel1985}.
 
 \begin{figure}[h]
   \centering
@@ -12,15 +12,15 @@ Foram representados modelos de MNs dos tipos S (\emph{slow}, que inerva fibras m
   \label{fig:fig1}
 \end{figure}
 
-Para o axônio, adotou-se um modelo simplificado baseado na detecção de um PA e sua transmissão até a UM com uma dada velocidade de condução. Os valores de velocidade de condução axonal foram baseados em estudos anteriores [5] (Tabela 2). O limiar de detecção do PA foi definido como o instante em que a taxa de variação do potencial de membrana é igual (ou ligeiramente superior) a 10mV/ms [4]. Adotou-se uma distância de 0,60 m entre o MN e a UM.
+Para o axônio, adotou-se um modelo simplificado baseado na detecção de um PA e sua transmissão até a UM com uma dada velocidade de condução. Os valores de velocidade de condução axonal foram baseados em estudos anteriores \cite{Cisi2008a} (Tabela 2). O limiar de detecção do PA foi definido como o instante em que a taxa de variação do potencial de membrana é igual (ou ligeiramente superior) a 10mV/ms \cite{Elias2012}. Adotou-se uma distância de 0,60 m entre o MN e a UM.
 
 \paragraph{Modelo de Unidade Muscular}
-As UMs foram modeladas como a resposta ao impulso (em tempo discreto) de um sistema de segunda ordem criticamente amortecido. Neste sistema são definidos dois parâmetros: i) a amplitude máxima do abalo muscular e ii) o tempo de contração (intervalo entre o início do abalo e o instante em que se atinge a amplitude máxima). Além disso, adotou-se um mecanismo forçado de saturação (baseado na frequência de disparos de PAs do MN) para as forças tetânicas das UMs. Os parâmetros dos modelos das UMs dos tipos S, FR e FF encontram-se na Tabela 2 e foram baseados em dados experimentais do tríceps sural humano [14].
+As UMs foram modeladas como a resposta ao impulso (em tempo discreto) de um sistema de segunda ordem criticamente amortecido. Neste sistema são definidos dois parâmetros: i) a amplitude máxima do abalo muscular e ii) o tempo de contração (intervalo entre o início do abalo e o instante em que se atinge a amplitude máxima). Além disso, adotou-se um mecanismo forçado de saturação (baseado na frequência de disparos de PAs do MN) para as forças tetânicas das UMs. Os parâmetros dos modelos das UMs dos tipos S, FR e FF encontram-se na Tabela 2 e foram baseados em dados experimentais do tríceps sural humano \cite{Watanabe2013}.
 
 \begin{table}[h]
  \caption{Parâmetros dos modelos de MN.}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabularx}{\columnwidth}{Xlll}
     \toprule
    % \multicolumn{2}{c}{Part}                   \\
     %\cmidrule(r){1-2}
@@ -38,7 +38,7 @@ As UMs foram modeladas como a resposta ao impulso (em tempo discreto) de um sist
    % Axon     & Output terminal & $\sim$10      \\
     %Soma     & Cell body       & up to $10^6$  \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
   \label{tab:table}
 \end{table}
 
@@ -62,7 +62,7 @@ As UMs foram modeladas como a resposta ao impulso (em tempo discreto) de um sist
 \end{table}
 
 \paragraph{Protocolo de Simulação: Relação força-frequência das unidades motoras}
-Todas as simulações foram realizadas utilizando-se o método numérico de integração de Euler com passo fixo de 1 ms. Foram realizados dois protocolos experimentais que serão descritos a seguir. Foram feitas simulações para verificar a relação entrada-saída de cada unidade motora. Para tanto, cada MN do núcleo motor foi estimulado com degraus de corrente com diferentes intensidades, de forma a promover disparos repetitivos de PAs com diferentes frequências. Em cada condição, registrou-se a força gerada pelas unidades motoras a fim de se obter a relação entre a força da UM e a frequência de ativação do MN [15].
+Todas as simulações foram realizadas utilizando-se o método numérico de integração de Euler com passo fixo de 1 ms. Foram realizados dois protocolos experimentais que serão descritos a seguir. Foram feitas simulações para verificar a relação entrada-saída de cada unidade motora. Para tanto, cada MN do núcleo motor foi estimulado com degraus de corrente com diferentes intensidades, de forma a promover disparos repetitivos de PAs com diferentes frequências. Em cada condição, registrou-se a força gerada pelas unidades motoras a fim de se obter a relação entre a força da UM e a frequência de ativação do MN \cite{Kernell2006}.
 
 \paragraph{Protocolo de simulação: Princípio do tamanho e geração da força muscular}
-Neste protocolo, buscou-se verificar a capacidade do modelo em representar as duas estratégias principais do sistema neuromuscular no controle de força: o recrutamento de unidades motoras (recruitment coding) e a modulação de suas frequências de disparos de PA (rate coding) [16]. O núcleo motor foi estimulado por uma corrente com forma de onda triangular simétrica (pico de 22 nA) e duração de 5 segundos. A força total gerada pelo modelo simplificado de músculo foi definida como a soma das forças geradas pelas UMs.
+Neste protocolo, buscou-se verificar a capacidade do modelo em representar as duas estratégias principais do sistema neuromuscular no controle de força: o recrutamento de unidades motoras (recruitment coding) e a modulação de suas frequências de disparos de PA (rate coding) \cite{kandel2013}. O núcleo motor foi estimulado por uma corrente com forma de onda triangular simétrica (pico de 22 nA) e duração de 5 segundos. A força total gerada pelo modelo simplificado de músculo foi definida como a soma das forças geradas pelas UMs.
