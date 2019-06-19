@@ -37,3 +37,5 @@ docker start -i my_container
 ```
 
 Para suporte, envie um e-mail para heitorsf@gmail.com.
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/heitorsf/reproducible/master)
