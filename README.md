@@ -16,7 +16,7 @@ Você pode executar o modelo usando um **container docker**, descrito abaixo, ou
 
 Primeiro, instale o Docker seguindo as instruções em https://docs.docker.com/install/, de acordo com seu sistema operacional (na página, escolha o sistema pelo menu lateral esquerdo).
 
-Você irá usar a imagem docker chamada [heitorsf/nerlab:reproduce] (https://hub.docker.com/r/heitorsf/nerlab) para criar um *container* (o link é apenas para referência ao Docker Hub). Você pode dar um nome a esse container para utilizá-lo novamente depois. Para isso, use o seguinte comando em um console ou terminal:
+Você irá usar a imagem docker chamada [heitorsf/nerlab:reproduce](https://hub.docker.com/r/heitorsf/nerlab) para criar um *container* (o link é apenas para referência ao Docker Hub). Você pode dar um nome a esse container para utilizá-lo novamente depois. Para isso, use o seguinte comando em um console ou terminal:
 
 ```
 docker run -it -p 8888:8888 --name my_container heitorsf/nerlab:reproduce
