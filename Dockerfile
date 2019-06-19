@@ -1,7 +1,7 @@
 FROM heitorsf/nerlab:reproduce
 
 # create user with a home directory
-ARG NB_USER=neuron
+ARG NB_USER
 ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /work/${NB_USER}
