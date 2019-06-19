@@ -1,6 +1,13 @@
 FROM heitorsf/nerlab:reproduce
-WORKDIR /work
-USER root
-EXPOSE 8888
-USER neuron
-CMD jupyter notebook
+
+# create user with a home directory
+ARG NB_USER=neuron
+ARG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /work/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+WORKDIR ${HOME}
