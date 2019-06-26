@@ -38,7 +38,7 @@ docker start -i my_container
 
 ## Workflow
 
-A execução do notebook está estruturada de maneira que há integração entre o Github e o Overleaf. Para gerar o PDF, basta clonar o repositório e associá-lo a uma conta no Overleaf ([Github + Overleaf](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)
+A execução do notebook está estruturada de maneira que há integração entre o Github e o Overleaf. Para gerar o PDF, basta clonar o repositório e associá-lo a uma conta no Overleaf ([Github + Overleaf](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F))
 
 ![Workflow](figures/Workflow.png)
 
