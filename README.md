@@ -36,6 +36,13 @@ Se você quiser rodar o mesmo container novamente, use:
 docker start -i my_container
 ```
 
+## Workflow
+
+A execução do notebook está estruturada de maneira que há integração entre o Github e o Overleaf. Para gerar o PDF, basta clonar o repositório e associá-lo a uma conta no Overleaf ([Github + Overleaf](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)
+
+![Workflow](figures/Workflow.png)
+
+
 Para suporte, envie um e-mail para heitorsf@gmail.com.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/heitorsf/reproducible/master)
