@@ -1,36 +1,36 @@
-# Modelo do sistema neuromuscular
+# Model of the neuromuscular system
 
-Este repositório contém um modelo computacional simplificado do sistema neuromuscular humano. Foi implementado usando o simulador NEURON com Python e com o módulo NetPyNE.
+This repository contains a simplified model of the neuromuscular system. It was implemented using the NEURON simulator with Python using NetPyNE.
 
-## Ambiente
+## Environment
 
-Estes são as dependências para executar o modelo:
+These are the dependencies to run the model:
 1. Python 2.7 (https://www.python.org/)
 2. NEURON 7.4 (https://neuron.yale.edu)
 3. NetPyNE 0.7.0 (https://netpyne.org)
-4. Os arquivos neste repositório.
+4. The files in this repository.
 
-Você pode executar o modelo usando um **container docker**, descrito abaixo, ou instalar todas as dependências manualmente.
+You can run the model using a **dock container**, further described, or manually install the dependencies .
 
-## Usando o container docker
+## Using the docker container
 
-Primeiro, instale o Docker seguindo as instruções em https://docs.docker.com/install/, de acordo com seu sistema operacional (na página, escolha o sistema pelo menu lateral esquerdo).
+First, install Docker following the instructions on https://docs.docker.com/install/, according to your operational system.
 
-Você irá usar a imagem docker chamada [heitorsf/nerlab:reproduce](https://hub.docker.com/r/heitorsf/nerlab) para criar um *container* (o link é apenas para referência ao Docker Hub). Você pode dar um nome a esse container para utilizá-lo novamente depois. Para isso, use o seguinte comando em um console ou terminal:
+You will use an docker image called [heitorsf/nerlab:reproduce](https://hub.docker.com/r/heitorsf/nerlab) to create a *container* (the link is just an reference to Docker Hub). You can name this container and start it again later. For that, use the following command in a console or terminal:
 
 ```
 docker run -it -p 8888:8888 --name my_container heitorsf/nerlab:reproduce
 ```
 
-*Em Linux, pode haver problemas de permissão, neste caso use `sudo docker (...)`.*
+*In Lunix there may be permission problemas, in this case, use `sudo docker (...)`.*
 
-Uma URL irá aparecer em sua tela, copie-a em um *web browser* para acessar o *jupyter notebook*.
+An URL will appear on your screen, copy and paste it in a web browser to access the jupyter notebook.
 
-Uma vez no jupyter notebook, acesse o diretório `reproducible/deliver` e ali abra o arquivo: `Artigo_Executavel.ipnb`.
+Once inside the jupyter notebook, go to the directory `reproducible/deliver` and open the file: `Artigo_Executavel.ipnb`.
 
-Para fechar o container, pressione Ctrl+c no terminal ou console a partir do quel você executou o container.
+To close the container, press Ctrl+c in the terminal or console from which you run the container.
 
-Se você quiser rodar o mesmo container novamente, use:
+If you want to start the same container again, use:
 
 ```
 docker start -i my_container
@@ -38,11 +38,11 @@ docker start -i my_container
 
 ## Workflow
 
-A execução do notebook está estruturada de maneira que há integração entre o Github e o Overleaf. Para gerar o PDF, basta clonar o repositório e associá-lo a uma conta no Overleaf ([Github + Overleaf](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)).
+The execution of the notebook is structured in integration between Github and Overleaf. To generate a PDF, just clone this repository and link it to an Overleaf account ([Github + Overleaf](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)).
 
 ![Workflow](figures/Workflow.png)
 
 
-Para suporte, envie um e-mail para heitorsf@gmail.com.
+For support, please contact heitorsf at gmail dot com or h074096 at dac dot unicamp dot br
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/heitorsf/reproducible/master)
